@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Факты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Эко-проект</h1>
+    <a href='/type_trash' class="button">Узнать тип мусора</a>
+    <a href='/' class="button">Перейти к главной странице</a>
+    <h2>Случайный факт об экологии</h2>
+    <p>{{ fact }}</p>
+    <h3>Эко-привычка</h3>
+    <p>{{ habit }}</p>
+    <a href="{{ url_for('refresh_facts') }}" class="button">Обновить факт</a>
+</body>
+</html>
