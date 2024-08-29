@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "*"
+python-dotenv = "*"
+pillow = "*"
+numpy = "*"
+keras = "==2.12.0"
+tensorflow = "==2.12.1"
 
 [dev-packages]
 
