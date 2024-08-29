@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Список отзывов</title>
+</head>
+<body>
+    <h1>Список отзывов</h1>
+    <a href='/' class="button">Перейти к главной странице</a>
+    <ul>
+        {% for feedback in feedbacks %}
+            <li>
+                <strong>{{ feedback.name }}</strong> ({{ feedback.email }}) написал:
+                <p>{{ feedback.message }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

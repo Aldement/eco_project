@@ -7,14 +7,41 @@
     <title>Upload Result</title>
 </head>
 <body>
-    <h1>Эко-проект</h1>
-    <a href="{{ url_for('facts_page') }}" class="button">Перейти к фактам</a>
-    <a href='/' class="button">Перейти к главной странице</a>
-    <div class="result-container">
-        <h2>Изображение успешно загруженно!</h2>
-        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
-        <p>Predicted Class: <strong>{{ predicted_class }}</strong></p>
-        <a href="{{ url_for('upload_file') }}">Upload another image</a>
+    <div class="container">
+        <h1>Эко-проект</h1>
+        <a href="{{ url_for('facts_page') }}" class="button">Перейти к фактам</a>
+        <a href='/' class="button">Перейти к главной странице</a>
+        <a href="{{ url_for('quiz') }}" class="button">Пройти эко-викторину</a>
+        <a href='/feedback' class="button">Оставьте отзыв</a>
+
+        <div class="result-container">
+            <h2>Изображение успешно загруженно!</h2>
+            {% block content %}
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+            <p>Тип мусора: <strong>{{ trash_class }}</strong></p>
+            {% if trash_class == 'Дерево' or trash_class == 'Картон' or trash_class == 'Бумага' %}
+                <span>Это отходы, которые не оказывают значительного негативного воздействия на окружающую среду и здоровье человека.</span>
+                <span> И вы его можете отдать в переработку или компостирование.</span>
+            {% elif trash_class == 'Стекло' or trash_class == 'Резина' or trash_class == 'Пластик' %}
+                <span>Это вещества, которые могут быть вредны при значительных объёмах или длительном воздействии.</span>
+                <span>И вы его можете отдать в переработку или повторное использование (если возможно).</span>
+                <span>Так же его можно сдать в пункты приёма вторсырья.</span>
+            {% elif trash_class == 'Батарейка' or trash_class == 'Бытовая химия' or trash_class == 'Лакокрасочный материал' %}
+                <span>Это вещества, которые могут нанести вред окружающей среде и здоровью человека, но с меньшей вероятностью и интенсивностью.</span>
+                <span>И вы его можете отдать в разделение или сдать на специализированные пункты сбора или переработки.</span>
+                <span>Но его не стоит выбрасывать вместе с обычным бытовым мусором.</span>
+            {% elif trash_class == 'Препарат' or trash_class == 'Шприц' or trash_class == 'Свинцовый аккумулятор' or trash_class == 'Отработанное масло' %}
+                <span>Это вещества, которые могут вызвать серьёзные экологические и медицинские проблемы при контакте с окружающей средой.</span>
+                <span>Его нужно сдать в специализированные пункты приёма.</span>
+                <span>А транспортировка и хранение только с использованием специальной упаковки и контейнеров.</span>
+            {% elif trash_class == 'Ртуть' %}
+                <span>Это вещество, которое может серьезно загрязнить окружающую среду и нанести непоправимый вред здоровью человека. Эти отходы опасны даже в малых количествах.</span>
+                <span>Необходимо сдавать такие отходы в специализированные центры по утилизации опасных веществ.</span>
+                <span>А также хранение и транспортировка таких отходов требуют особых мер предосторожности.</span>
+            {% endif %}
+            {% endblock %}
+            <p><a href="{{ url_for('upload_file') }}">Upload another image</a></p>
+        </div>
     </div>
 </body>
 </html>

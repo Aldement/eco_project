@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Эко-викторина</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Эко-викторина</h1>
+        <form method="post">
+            {% for item in quiz_questions %}
+                <div class="quiz-question">
+                    <p><strong>{{ item.question }}</strong></p>
+                    {% for option in item.options %}
+                        <div>
+                            <input type="radio" id="question-{{ item.index }}-{{ loop.index0 }}" name="question-{{ item.index }}" value="{{ option }}" required>
+                            <label for="question-{{ item.index }}-{{ loop.index0 }}">{{ option }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <input type="submit" value="Отправить ответы">
+        </form>
+    </div>
+</body>
+</html>
+

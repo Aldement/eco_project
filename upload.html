@@ -7,15 +7,20 @@
     <title>Upload Image</title>
 </head>
 <body>
-    <h1>Эко-проект</h1>
-    <a href="{{ url_for('facts_page') }}" class="button">Перейти к фактам</a>
-    <a href='/' class="button">Перейти к главной странице</a>
-    <div class="upload-container">
-        <h2>Загрузите изображение что бы узнать тип мусора и что с ним делать</h2>
-        <form method="post" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Определить мусор">
-        </form>
-    </div>
+    <div class="container">
+        <h1>Эко-проект</h1>
+        <a href="{{ url_for('facts_page') }}" class="button">Перейти к фактам</a>
+        <a href='/' class="button">Перейти к главной странице</a>
+        <a href="{{ url_for('quiz') }}" class="button">Пройти эко-викторину</a>
+        <a href='/feedback' class="button">Оставьте отзыв</a>
+
+        <div class="upload-container">
+            <h2>Загрузите изображение что бы узнать тип мусора и что с ним делать</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Определить мусор">
+            </form>
+        </div>
+    </div> 
 </body>
 </html>

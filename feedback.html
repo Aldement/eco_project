@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Обратная связь</title>
+</head>
+<body>
+    <h1>Обратная связь</h1>
+    <a href='/' class="button">Перейти к главной странице</a>
+    <a href='/feedbacks' class="button">Список отзывов</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('feedback') }}">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Ваш email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Ваше сообщение:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,285 @@
+/* styles.css */
+
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eaf0e7; /* Светло-зеленый фон */
+    color: #3e3e3e; /* Темно-серый цвет текста для читаемости */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2e8b57; /* Тёмно-зеленый цвет заголовков */
+    margin-top: 0;
+}
+
+a {
+    color: #4caf50; /* Ярко-зеленый цвет ссылок */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #388e3c; /* Более темный оттенок зеленого при наведении */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Кнопки */
+.button {
+    display: inline-block;
+    background-color: #4caf50; /* Ярко-зеленый фон кнопок */
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #388e3c; /* Темный зеленый фон при наведении */
+}
+
+/* Заголовок */
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #2e8b57; /* Темно-зеленый фон */
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Карточки */
+.upload-container, .result-container, .facts-container, .feedback-container, .feedback-list-container {
+    background: #f9fbe7; /* Светло-желтый фон для карточек */
+    padding: 20px;
+    border-radius: 12px; /* Более круглые углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более мягкая тень */
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid #c8e6c9; /* Светло-зеленая рамка */
+}
+
+.upload-container h2, .result-container h2, .facts-container h2 {
+    color: #2e8b57; /* Цвет заголовков в карточках */
+}
+
+/* Формы */
+form input[type="file"], form input[type="submit"] {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="file"] {
+    padding: 10px;
+    background-color: #dcedc8; /* Светло-зеленый фон для файловых полей */
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #4caf50; /* Ярко-зеленый фон кнопок отправки */
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #388e3c; /* Темный зеленый фон при наведении */
+}
+
+/* Изображение в result.html */
+.result-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Основной текст на главной странице */
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    color: #3e8e41; /* Тёмно-зеленый цвет заголовков */
+}
+
+/* Media Queries для адаптивного дизайна */
+@media (max-width: 768px) {
+    .container, .feedback-container, .feedback-list-container {
+        width: 90%;
+    }
+
+    .feedback-container h1, .feedback-list-container h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 500px) {
+    .upload-container, .result-container, .facts-container, .feedback-container, .feedback-list-container {
+        padding: 15px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    form input[type="file"], form input[type="submit"] {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .feedback-container form input[type="text"],
+    .feedback-container form input[type="email"],
+    .feedback-container form textarea {
+        font-size: 1em;
+    }
+
+    .feedback-list-container li {
+        padding: 10px;
+    }
+}
+
+.quiz-question {
+    margin-bottom: 20px;
+}
+
+.quiz-question label {
+    margin-left: 10px;
+}
+
+.quiz-question input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Flash-сообщения */
+.flash-message {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.flash-message.success {
+    background-color: #66bb6a; /* Цвет для успешных сообщений */
+}
+
+.flash-message.error {
+    background-color: #e57373; /* Цвет для ошибок */
+}
+
+/* Обратная связь */
+.feedback-container {
+    background: #f1f8e9; /* Светло-зеленый с желтым оттенком фон */
+    padding: 20px;
+    border-radius: 12px; /* Более круглые углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более мягкая тень */
+    margin: 20px auto;
+    max-width: 600px;
+    border: 2px solid #c8e6c9; /* Светло-зеленая рамка */
+}
+
+.feedback-container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2e7d32; /* Темно-зеленый цвет заголовка */
+    font-size: 1.8em; /* Более крупный заголовок */
+}
+
+.feedback-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-container form label {
+    margin-bottom: 8px; /* Увеличен отступ */
+    font-weight: bold;
+    color: #388e3c; /* Зеленый цвет текста */
+}
+
+.feedback-container form input[type="text"],
+.feedback-container form input[type="email"],
+.feedback-container form textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #a5d6a7; /* Светло-зеленая граница */
+    border-radius: 8px; /* Более округлые углы */
+    font-size: 1em;
+    background-color: #e8f5e9; /* Светло-зеленый фон полей ввода */
+}
+
+.feedback-container form textarea {
+    resize: vertical;
+    min-height: 120px; /* Немного больше минимальная высота */
+}
+
+.feedback-container form button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #4caf50; /* Ярко-зеленый фон кнопки */
+    border: none;
+    color: white;
+    border-radius: 8px; /* Более округлые углы */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-container form button[type="submit"]:hover {
+    background-color: #388e3c; /* Темный зеленый при наведении */
+    transform: scale(1.05); /* Легкое увеличение кнопки */
+}
+
+/* Страница отзывов */
+.feedback-list-container {
+    background: #f9fbe7; /* Светло-желтый фон */
+    padding: 20px;
+    border-radius: 12px; /* Более круглые углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более мягкая тень */
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.feedback-list-container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feedback-list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feedback-list-container li {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 8px; /* Более округлые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.feedback-list-container li strong {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.feedback-list-container li p {
+    margin: 0;
+    font-size: 1em;
+}
+
